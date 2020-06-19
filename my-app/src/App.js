@@ -7,5 +7,25 @@ function App() {
         <MainPage/>
     );
 }
+//
+// export class Home extends Component {
+//   render() {
+//     return (
+//        <MainPage/>
+//     )
+//   }
+// }
+//
+// export class First extends Component {
+//   render() {
+//     return (
+//        <div>
+//            Hi
+//        </div>
+//     )
+//   }
+// }
+
+
 
 export default App;

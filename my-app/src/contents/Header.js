@@ -1,4 +1,6 @@
 import React from 'react';
+import CategoriDialog from '../components/CategoriDialog'
+
 import {fade, makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -14,6 +16,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -79,10 +83,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
 export default function Header() {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const [open, setOpen] = React.useState(false);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -104,6 +110,15 @@ export default function Header() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const callbackFunction = (IsOpen) => {
+        setOpen(IsOpen);
+    }
+
+
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -113,7 +128,6 @@ export default function Header() {
             keepMounted
             transformOrigin={{vertical: 'top', horizontal: 'right'}}
             open={isMenuOpen}
-            onClose={handleMenuClose}
         >
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
@@ -169,9 +183,11 @@ export default function Header() {
                     className={classes.menuButton}
                     color="inherit"
                     aria-label="open drawer"
-                    onClick={handleMenuClose}
+                    onClick={handleClickOpen}
                 >
                     <MenuIcon/>
+                    {/*<font face="font" size="3">카테고리</font>*/}
+
                 </IconButton>
                 <Typography className={classes.title} variant="h6" noWrap>
                     움직이는 사람들
@@ -232,6 +248,9 @@ export default function Header() {
             {mainHeader}
             {renderMobileMenu}
             {renderMenu}
+
+            <CategoriDialog IsOpen={open} callbackFunction={callbackFunction}/>
+
         </div>
     );
 }

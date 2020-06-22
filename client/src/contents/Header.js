@@ -190,7 +190,7 @@ export default function Header() {
 
                 </IconButton>
                 <Typography className={classes.title} variant="h6" noWrap>
-                    움직이는 사람들
+                    react architecture
                 </Typography>
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>

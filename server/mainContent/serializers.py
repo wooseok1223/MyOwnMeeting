@@ -1,4 +1,4 @@
-from server.mainContent.models import Person
+from mainContent.models import Person
 from rest_framework import serializers
 
 

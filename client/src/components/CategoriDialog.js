@@ -66,14 +66,6 @@ export default function CustomizedDialogs({IsOpen, callbackFunction}) {
     return (
         <div>
             <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={IsOpen}>
-                <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    모임
-                </DialogTitle>
-                <DialogContent dividers>
-                    <List>
-
-                    </List>
-                </DialogContent>
                 <DialogTitle id="customized-dialog-title">
                     지역
                 </DialogTitle>

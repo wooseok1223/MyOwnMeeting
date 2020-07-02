@@ -1,8 +1,7 @@
-from mainContent.models import Person
+from mainContent.models import Snippet
 from rest_framework import serializers
 
-
-class PersonSerializer(serializers.HyperlinkedModelSerializer):
+class SnippetSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Person
-        fields = ('first_name', 'last_name')
+        model = Snippet
+        fields = ['id', 'src', 'title','head', 'content']

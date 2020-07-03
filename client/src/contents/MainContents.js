@@ -13,7 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-// import Image1 from '../img/sampleData.jpeg'
+import Image1 from '../img/sampleData.jpeg'
+import Image2 from '../img/sampleData2.jpeg'
+import Image3 from '../img/sampleData3.jpeg'
 
 function Copyright() {
     return (
@@ -64,22 +66,22 @@ export default function Album() {
     const classes = useStyles();
 
     const jsonSet = [{
-            image: "https://source.unsplash.com/random",
+            image: Image1,
             title: "역전 할머니 맥주",
             head: "역전 할머니 맥주",
             content: "건대에서 가장 인기 있는 술집 Best 1"
         },
         {
-            image: "https://source.unsplash.com/random",
-            title: "제목",
-            head: "제목2",
-            content: "그렇지"
+            image: Image2,
+            title: "악바리",
+            head: "악바리",
+            content: "강남에서 가장 안주가 맛있는 집 (대표메뉴 : 석쇠불고기, 계란말이)"
         },
         {
-            image: "https://source.unsplash.com/random",
-            title: "제목",
-            head: "제목3",
-            content: "바로 이맛 아입니까"
+            image: Image3,
+            title: "코다차야",
+            head: "코다차야",
+            content: "강남에서 가장 안주가 맛있는 집 (대표메뉴 : 닭똥집)"
         }
     ]
 
@@ -91,20 +93,18 @@ export default function Album() {
                 <div className={classes.heroContent}>
                     <Container maxWidth="sm">
                         <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                            Something short and leading about the collection below—its contents, the creator, etc.
-                            Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-                            entirely.
+                            지역카테고리에서 키워드로 검색된 결과 입니다. 더많은 정보를 알고 싶다면 하단의 버튼을 클릭해주세요.
                         </Typography>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
                                     <Button variant="contained" color="primary">
-                                        Main call to action
+                                        더 많은 정보 조회
                                     </Button>
                                 </Grid>
                                 <Grid item>
                                     <Button variant="outlined" color="primary">
-                                        Secondary action
+                                        카테고리 재설정
                                     </Button>
                                 </Grid>
                             </Grid>
@@ -133,9 +133,6 @@ export default function Album() {
                                     <CardActions>
                                         <Button size="small" color="primary">
                                             View
-                                        </Button>
-                                        <Button size="small" color="primary">
-                                            Edit
                                         </Button>
                                     </CardActions>
                                 </Card>

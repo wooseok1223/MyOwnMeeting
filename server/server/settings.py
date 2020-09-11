@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'mainContent'
+    'lib',
+    'angel_instrument'
 )
 
 # MIDDLEWARE_CLASSES = (
@@ -51,6 +52,7 @@ INSTALLED_APPS = (
 #     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 #     'django.middleware.security.SecurityMiddleware',
 # )
+# AUTH_USER_MODEL = 'angel_instrument.Users' # 'AppName.모델명'
 
 MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -59,6 +61,12 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+SILENCED_SYSTEM_CHECKS = [
+    'admin.E408',
+    'admin.E409',
+    'admin.E410'
 ]
 
 ROOT_URLCONF = 'server.urls'
@@ -102,8 +110,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
-        'USER': 'root',
-        'PASSWORD': 'password',
+        'USER': 'wooseok',
+        'PASSWORD': 'qwer1234',
         'HOST': 'localhost',
         'PORT': '5432',
     }

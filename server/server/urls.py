@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
 # from rest_framework import routers
-from mainContent import views
+from angel_instrument import views
 from rest_framework.urlpatterns import format_suffix_patterns
 
 # router = routers.DefaultRouter()
@@ -14,8 +14,8 @@ from rest_framework.urlpatterns import format_suffix_patterns
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     # url(r'', include(router.urls)),
-    url(r'snippets/', views.snippet_list),
-    url(r'snippets/(?P<page>\d+)/$', views.snippet_detail),
+    url(r'music_list/', views.snippet_list),
+    url(r'music_base/', views.snippet_list_post),
     url(r'api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # url('admin/', admin.site.urls),
 ]

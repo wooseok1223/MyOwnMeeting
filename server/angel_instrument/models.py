@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class post(models.Model):
+class Music(models.Model):
     rank = models.IntegerField(null=False,unique=True)
     title = models.TextField(max_length=50)
     artist = models.TextField(max_length=20)

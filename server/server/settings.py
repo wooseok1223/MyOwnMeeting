@@ -15,7 +15,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -25,8 +24,10 @@ SECRET_KEY = 'v80m@@@0hm%gmr+wvm5whi7t4l2ib1#n=)%*kwg(m)!bwol=9o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    'localhost',
+    '.ap-northeast-2.compute.amazonaws.com',
+]
 
 # Application definition
 
@@ -89,7 +90,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'server.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
@@ -104,19 +104,16 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
+        'NAME': 'music',
         'USER': 'wooseok',
-        'PASSWORD': 'qwer1234',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -130,7 +127,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/

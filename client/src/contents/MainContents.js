@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -16,6 +16,7 @@ import Link from '@material-ui/core/Link';
 import Image1 from '../img/sampleData.jpeg'
 import Image2 from '../img/sampleData2.jpeg'
 import Image3 from '../img/sampleData3.jpeg'
+import axios from "axios";
 
 function Copyright() {
     return (
@@ -64,13 +65,26 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Album() {
     const classes = useStyles();
+    const [MusicList, SetMusicList] = React.useState(0);
+
+    useEffect(() => {
+        const getData = async () => {
+            const response = await axios.get('/piano/music/list/', {});
+            SetMusicList(response);
+        }
+
+        getData()
+
+    }, []);
+
+    console.log(MusicList.data)
 
     const jsonSet = [{
-            image: Image1,
-            title: "역전 할머니 맥주",
-            head: "역전 할머니 맥주",
-            content: "건대에서 가장 인기 있는 술집 Best 1"
-        },
+        image: Image1,
+        title: "역전 할머니 맥주",
+        head: "역전 할머니 맥주",
+        content: "건대에서 가장 인기 있는 술집 Best 1"
+    },
         {
             image: Image2,
             title: "악바리",
@@ -93,7 +107,7 @@ export default function Album() {
                 <div className={classes.heroContent}>
                     <Container maxWidth="sm">
                         <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                            지역카테고리에서 키워드로 검색된 결과 입니다. 더많은 정보를 알고 싶다면 하단의 버튼을 클릭해주세요.
+                            테스트
                         </Typography>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
@@ -111,35 +125,13 @@ export default function Album() {
                         </div>
                     </Container>
                 </div>
-                <Container className={classes.cardGrid} maxWidth="md">
-                    {/* End hero unit */}
-                    <Grid container spacing={4}>
-                        {jsonSet.map((card, idx) => (
-                            <Grid item key={card} xs={12} sm={6} md={4}>
-                                <Card className={classes.card}>
-                                    <CardMedia
-                                        className={classes.cardMedia}
-                                        image= {card.image}
-                                        title= {card.title}
-                                    />
-                                    <CardContent className={classes.cardContent}>
-                                        <Typography gutterBottom variant="h5" component="h2">
-                                            {card.head}
-                                        </Typography>
-                                        <Typography>
-                                            {card.content}
-                                        </Typography>
-                                    </CardContent>
-                                    <CardActions>
-                                        <Button size="small" color="primary">
-                                            View
-                                        </Button>
-                                    </CardActions>
-                                </Card>
-                            </Grid>
-                        ))}
-                    </Grid>
-                </Container>
+                <div>
+                    {MusicList ? MusicList.data.map((v) => (
+                        <div>
+                            {v.title} {v.artist} {v.like}
+                        </div>
+                    )) : ""}
+                </div>
             </main>
             {/* Footer */}
             <footer className={classes.footer}>

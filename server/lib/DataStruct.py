@@ -11,12 +11,13 @@ class MelonData:
     def musicSearch(self):
         base_url = self.url  # 접속하고자하는 url'
 
-        options = webdriver.ChromeOptions()
-
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
-        driver = webdriver.Chrome('chromedriver', options=options)
+        # options = webdriver.ChromeOptions()
+        #
+        # options.add_argument('--headless')
+        # options.add_argument('--no-sandbox')
+        # options.add_argument('--disable-dev-shm-usage')
+        # driver = webdriver.Chrome('chromedriver', options=options)
+        driver = webdriver.Chrome('chromedriver')
 
         driver.get(base_url)
 

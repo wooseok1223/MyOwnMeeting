@@ -1,26 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Header from '../contents/Header'
-import axios from 'axios';
 import MainContainer from '../contents/MainContents'
 
-async function LoadData() {
-    const response = await axios.post('/piano/music/list/', {});
 
-    console.log(response)
-    return response.data;
-}
-
-
-function MainPage() {
+function MainPage(props) {
 
     return (
         <div>
-            <button onClick={() => {
-                LoadData()
-            }}>post
-            </button>
             <Header/>
-            <MainContainer/>
+            <MainContainer
+            data={props.data}/>
         </div>
     );
 }

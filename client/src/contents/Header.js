@@ -190,7 +190,7 @@ export default function Header() {
 
                 </IconButton>
                 <Typography className={classes.title} variant="h6" noWrap>
-                    MyOneMeeting
+                    Angel's Instrument
                 </Typography>
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>

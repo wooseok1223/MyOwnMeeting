@@ -3,4 +3,5 @@ from angel_instrument import views
 
 urlpatterns = [
     path('list/', views.snippet_list),
+    path('graph/', views.showGraph),
 ]

@@ -23,9 +23,9 @@ const userReducer = (state, action) => {
 export default function useRequest(props) {
     const [state, dispatchUser] = useReducer(userReducer, initialMusicState)
 
-    if (props.type === 'nodata', props.data === {}) {
-        dispatchUser({type: 'nodata'})
-    }
+    // if (props.type === 'nodata' && !props.data === false) {
+    //     dispatchUser({type: 'nodata'})
+    // }
 
     return state
 }

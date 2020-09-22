@@ -14,6 +14,8 @@ import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import DataGrid from "../components/DataGrid"
+import IconButton from "@material-ui/core/IconButton";
+import CategoriDialog from "../components/CategoriDialog";
 
 function Copyright() {
     return (
@@ -47,32 +49,53 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Album(props) {
     const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+
+    const titleName = () => {
+        let name = ''
+        if (props.data.data) {
+            name = props.data.data[0].title
+        }
+        console.log(name)
+        return name
+    }
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const callbackFunction = (IsOpen) => {
+        setOpen(IsOpen);
+    }
+
+
     return (
-        <React.Fragment>
+        <div>
             <CssBaseline/>
             <main>
                 <div className={classes.heroContent}>
-                    <Container maxWidth="sm">
-                        <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                            악기 빅데이터 표출 안내문
+                    <Container maxWidth="600px">
+                        <Typography variant="h5" align="center" color="textSecondary">
+                            현재 가장 인기 있는 피아노곡은 <div
+                            style={{color: 'red', display: "inline-block"}}>'{titleName()}'</div> 입니다.
                         </Typography>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="primary">
-                                        더 많은 정보 조회
+                                    <Button variant="contained" color="primary" onClick={handleClickOpen}>
+                                        그래프 보기
                                     </Button>
                                 </Grid>
                                 <Grid item>
                                     <Button variant="outlined" color="primary">
-                                        카테고리 재설정
+                                        고민중
                                     </Button>
                                 </Grid>
                             </Grid>
                         </div>
                     </Container>
                 </div>
-                <div  className={classes.tableStyle}>
+                <div className={classes.tableStyle}>
                     <DataGrid
                         data={props.data}/>
                 </div>
@@ -88,6 +111,7 @@ export default function Album(props) {
                 <Copyright/>
             </footer>
             {/* End footer */}
-        </React.Fragment>
+            <CategoriDialog IsOpen={open} callbackFunction={callbackFunction}/>
+        </div>
     );
 }

@@ -1,75 +1,3 @@
-// import React from 'react';
-// import {makeStyles} from '@material-ui/core/styles';
-// import Table from '@material-ui/core/Table';
-// import TableBody from '@material-ui/core/TableBody';
-// import TableCell from '@material-ui/core/TableCell';
-// import TableContainer from '@material-ui/core/TableContainer';
-// import TableHead from '@material-ui/core/TableHead';
-// import TableRow from '@material-ui/core/TableRow';
-// import Paper from '@material-ui/core/Paper';
-//
-// const useStyles = makeStyles({
-//     table: {
-//         minWidth: 650,
-//         textAlign: "center"
-//     },
-//     tableDetail: {
-//         fontSize: "12px",
-//     },
-//     tableHeader: {
-//         fontSize: "13px",
-//     },
-//     root: {
-//         width: "80%",
-//         heigth: "",
-//         display: "inline-block",
-//         marginTop : "20px"
-//     }
-// });
-//
-// export default function SimpleTable({data}) {
-//     console.log(data.data)
-//     const classes = useStyles();
-//     return (
-//         <>
-//             <div className={classes.root}>
-//                 {
-//                     data.data ?
-//                         <TableContainer component={Paper}>
-//                             <Table className={classes.table} aria-label="simple table">
-//                                 <TableHead>
-//                                     <TableRow>
-//                                         <TableCell className={classes.tableHeader} align="center">rank</TableCell>
-//                                         <TableCell className={classes.tableHeader} align="center">title</TableCell>
-//                                         <TableCell className={classes.tableHeader} align="center">artist</TableCell>
-//                                         <TableCell className={classes.tableHeader} align="center">like</TableCell>
-//                                     </TableRow>
-//                                 </TableHead>
-//                                 <TableBody>
-//                                     {data.data.map((row, index) => {
-//                                         let component = ''
-//                                         if (index <= 9) {
-//                                             component = (<TableRow key={row.rank}>
-//                                                 <TableCell className={classes.tableDetail}
-//                                                            align="left">{row.rank}</TableCell>
-//                                                 <TableCell className={classes.tableDetail}
-//                                                            align="left">{row.title}</TableCell>
-//                                                 <TableCell className={classes.tableDetail}
-//                                                            align="left">{row.artist}</TableCell>
-//                                                 <TableCell className={classes.tableDetail}
-//                                                            align="left">{row.like}</TableCell>
-//                                             </TableRow>)
-//                                         }
-//                                         return component
-//                                     })}
-//                                 </TableBody>
-//                             </Table>
-//                         </TableContainer> : <div></div>
-//                 }
-//             </div>
-//         </>
-//     );
-// }
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -106,7 +34,8 @@ const useStyles = makeStyles({
         width: "80%",
         heigth: "",
         display: "inline-block",
-        marginTop: "20px"
+        marginTop: "20px",
+        marginBottom: "20px"
     },
     container: {
         maxHeight: 440,

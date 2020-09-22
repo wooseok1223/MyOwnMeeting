@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import {makeStyles, withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
@@ -8,7 +8,7 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-import List from '../components/List'
+
 
 const styles = (theme) => ({
     root: {
@@ -21,6 +21,7 @@ const styles = (theme) => ({
         top: theme.spacing(1),
         color: theme.palette.grey[500],
     },
+
 });
 
 const DialogTitle = withStyles(styles)((props) => {
@@ -51,32 +52,24 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 
-export default function CustomizedDialogs({IsOpen, callbackFunction}) {
+export default function CustomizedDialogs(props) {
 
-    const handleClose = (IsOpen) => {
-        callbackFunction(false)
+    const handleClose = () => {
+        props.callbackFunction(false)
     }
-
-    // useEffect(() => {
-    //
-    //     setOpen(IsOpen)
-    //
-    // }, [IsOpen])
 
     return (
         <div>
-            <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={IsOpen}>
+            <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={props.IsOpen}>
                 <DialogTitle id="customized-dialog-title">
-                    지역
+                    좋아요별 순위 그래프
                 </DialogTitle>
                 <DialogContent dividers>
-                    <List>
-
-                    </List>
+                    <img style={{width: "auto" ,height: "400px"}} src={require(`../img/test.png`)}></img>
                 </DialogContent>
                 <DialogActions>
                     <Button autoFocus onClick={handleClose} color="primary">
-                        Save changes
+                        exit
                     </Button>
                 </DialogActions>
             </Dialog>

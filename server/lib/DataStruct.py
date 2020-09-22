@@ -1,5 +1,9 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+from angel_instrument.models import Music
 
 class MelonData:
     def setUrl(self, url):
@@ -11,13 +15,13 @@ class MelonData:
     def musicSearch(self):
         base_url = self.url  # 접속하고자하는 url'
 
-        # options = webdriver.ChromeOptions()
-        #
-        # options.add_argument('--headless')
-        # options.add_argument('--no-sandbox')
-        # options.add_argument('--disable-dev-shm-usage')
-        # driver = webdriver.Chrome('chromedriver', options=options)
-        driver = webdriver.Chrome('chromedriver')
+        options = webdriver.ChromeOptions()
+
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        driver = webdriver.Chrome('chromedriver', options=options)
+        # driver = webdriver.Chrome('chromedriver')
 
         driver.get(base_url)
 
@@ -45,3 +49,4 @@ class MelonData:
             cnt += 1
 
         self.totalResult = result
+

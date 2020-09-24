@@ -111,7 +111,7 @@ export default function Album(props) {
                 <Copyright/>
             </footer>
             {/* End footer */}
-            <CategoriDialog IsOpen={open} callbackFunction={callbackFunction}/>
+            {open ? <CategoriDialog IsOpen={open} callbackFunction={callbackFunction}/> : ""}
         </div>
     );
 }

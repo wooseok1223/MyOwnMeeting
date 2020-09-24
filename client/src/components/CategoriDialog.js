@@ -58,6 +58,14 @@ export default function CustomizedDialogs(props) {
         props.callbackFunction(false)
     }
 
+    let today = new Date();
+
+    // let year = today.getFullYear(); // 년도
+    // let month = String(today.getMonth() + 1).padStart(2,'0');  // 월
+    // let date = today.getDate();  // 날짜
+
+    let name = 'Graph.png'
+
     return (
         <div>
             <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={props.IsOpen}>
@@ -65,7 +73,7 @@ export default function CustomizedDialogs(props) {
                     좋아요별 순위 그래프
                 </DialogTitle>
                 <DialogContent dividers>
-                    <img style={{width: "auto" ,height: "400px"}} src={require(`../img/test.png`)}></img>
+                    <img style={{width: "auto", height: "400px"}} src={require(`../img/${name}`)}></img>
                 </DialogContent>
                 <DialogActions>
                     <Button autoFocus onClick={handleClose} color="primary">

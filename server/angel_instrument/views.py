@@ -44,12 +44,7 @@ def showGraph(request):
         plt.bar(df['rank'], df.like)
         plt.xlabel('like')
         plt.ylabel('rank')
-        my_file = Path("/Users/wooseok/MyOwnMeeting/client/src/img/test.png")
-        print(my_file.is_file())
-        if my_file.is_file():
-            pass
-        else:
-            plt.savefig('/Users/wooseok/MyOwnMeeting/client/src/img/test.png')
+        plt.savefig('/Users/wooseok/MyOwnMeeting/client/src/img/' + 'Graph.png')
 
         return Response(data={})
 

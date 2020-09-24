@@ -16,13 +16,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CircularIndeterminate(props) {
     const classes = useStyles();
-    const handleClose = () => {
-        props.callbackFunction(false)
-    }
     console.log("진행되고있나?")
     return (
         <>
-            <Dialog className={classes.root} onClose={handleClose} aria-labelledby="customized-dialog-title"
+            <Dialog className={classes.root} aria-labelledby="customized-dialog-title"
                     open={props.IsOpen}>
                 <DialogTitle id="customized-dialog-title">
                     데이터를 불러오고 있습니다 잠시만 기다려주세요.

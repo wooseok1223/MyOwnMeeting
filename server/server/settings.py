@@ -25,7 +25,6 @@ SECRET_KEY = 'v80m@@@0hm%gmr+wvm5whi7t4l2ib1#n=)%*kwg(m)!bwol=9o'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost',
     '127.0.0.1',
     '*',
     '13.125.82.234'
@@ -72,10 +71,8 @@ MIDDLEWARE_CLASSES = [
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
     'http://127.0.0.1:3000',
-    'http://localhost:8080',
-    'http://127.0.0.1:8080',
+    'http://127.0.0.1:8000'
 ]
 
 # CORS_ALLOW_METHODS = (

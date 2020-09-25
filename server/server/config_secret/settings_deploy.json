@@ -1,0 +1,13 @@
+{
+  "django": {
+    "allowed_hosts": [
+      ".ap-northeast-2.compute.amazonaws.com",
+      "13.125.82.234"
+    ],
+    "databases": {
+      "host": "DATABASE_ENDPOINT",
+      "user": "DATABASE_USERNAME",
+      "password": "DATABASE_PASSWORD"
+    }
+  }
+}

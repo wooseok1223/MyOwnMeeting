@@ -1,16 +1,18 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from angel_instrument.models import Music
-from angel_instrument.serializers import MusicSerializer
+from angel_instrument.models import Music, User
 from lib.DataStruct import MelonData
 import pandas as pd
 import matplotlib.pyplot as plt
 import time
-from pathlib import Path
+from angel_instrument.serializers import (
+    CreateUserSerializer,
+    MusicSerializer
+)
 
 @api_view(['GET','POST'])
-def snippet_list(request):
+def music_list(request):
     if request.method == 'GET':
         music = Music.objects.all()
         serializer = MusicSerializer(music, many=True)
@@ -36,6 +38,30 @@ def snippet_list(request):
                 serializer.save()
 
         return Response(data=serializer.data)
+
+
+@api_view(['GET','POST'])
+def login(request):
+    if request.method == 'GET':
+        param = {
+            "user_id" : request.GET.get('name', None),
+            "password": request.GET.get('name', None)
+        }
+        if User.objects.filter(user_id=param['user_id'], password=param['password']).exists() == True:
+            return Response({ "message": "로그인에 성공하셨습니다."})
+        else:
+            return Response({"message": "아이디나 비밀번호가 일치하지 않습니다."})
+
+    elif request.method == 'POST':
+        data = request.data
+
+        if User.objects.filter(user_id=data['user_id']).exists() == True:
+            return Response({"message": "이미 존재하는 아이디입니다."})
+
+        else:
+            User.objects.create(user_id=data['user_id'], user_name=data['user_name'], email=data['email'], password=data['password'])
+            return Response({"message": "회원으로 가입되셨습니다."})
+
 
 @api_view(['POST'])
 def showGraph(request):

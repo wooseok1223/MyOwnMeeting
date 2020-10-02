@@ -98,12 +98,12 @@ export default function SignIn() {
                     </Button>
                     <Grid container>
                         <Grid item xs>
-                            <Link href="#" variant="body2">
-                                Forgot password?
-                            </Link>
+                            <NavLink to={`/signup`} style={{ textDecoration: 'none',color : "blue"}}>
+                                <li color="inherit">{"Forgot password?"}</li>
+                            </NavLink>
                         </Grid>
                         <Grid item>
-                            <NavLink to={`/signup`} style={{ textDecoration: 'none' }}>
+                            <NavLink to={`/signup`} style={{ textDecoration: 'none',color : "blue"}}>
                                 <li color="inherit">{"Don't have an account? Sign Up"}</li>
                             </NavLink>
                         </Grid>

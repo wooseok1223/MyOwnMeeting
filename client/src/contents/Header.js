@@ -41,7 +41,7 @@ export default function MenuAppBar(props) {
                         <Typography variant="h6" className={classes.title}>
                             Angel's Instrument
                         </Typography>
-                        <NavLink to={`/signin`} style={{textDecoration: 'none'}}>
+                        <NavLink to={`/signin`} style={{textDecoration: 'none' ,color : "inherit"}}>
                             <Button color="inherit">Login</Button>
                         </NavLink>
                     </Toolbar>
